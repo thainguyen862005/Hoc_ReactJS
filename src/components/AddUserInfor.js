@@ -1,6 +1,6 @@
 import React from 'react'
 
-class UserInfor extends React.Component {
+class AddUserInfor extends React.Component {
     state = {
         name: 'Denis Nguyen',
         address: 'HCM',
@@ -28,25 +28,32 @@ class UserInfor extends React.Component {
     handleOnSubmit = (e) => {
         e.preventDefault(); //Chặn load lại trang khi submit form
         console.log(this.state);
+
+        //nhận dữ liệu Props từ  cha 
+        this.props.handleAddNewUser({
+            id: Math.floor((Math.random() *100)+1)+'random',
+            name: this.state.name,
+            age: this.state.age
+
+        });
     }
 
     render() {
         return( 
             <div>
                 My name is ({this.state.name}), I am ({this.state.age}) years old, I am from ({this.state.address})
-                <button onClick={(event) => { this.handleClick(event) }}>Click me</button>
                 <form onSubmit={(e) => { this.handleOnSubmit(e) }}>
                     <label>Enter your name</label>
                     <input
                         value={this.state.name} //tránh set cứng giá trị trong input, khi thay đổi sẽ gọi hàm handleonChangeInput để set lại state
                         type='text'
-                        onChange={(e) => { this.handleonChangeAge(e) }} />
+                        onChange={(e) => { this.handleonChangeInput(e) }} />
 
                         <label>Enter your Age</label>
                     <input
                         value={this.state.age} //tránh set cứng giá trị trong input, khi thay đổi sẽ gọi hàm handleonChangeInput để set lại state
                         type='text'
-                        onChange={(e) => { this.handleonChangeInput(e) }} />
+                        onChange={(e) => { this.handleonChangeAge(e) }} />
                     <button>Submit</button>
                 </form>
             </div>
@@ -54,4 +61,4 @@ class UserInfor extends React.Component {
 
 }
 }
-export default UserInfor;
+export default AddUserInfor;

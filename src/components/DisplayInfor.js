@@ -27,7 +27,7 @@ class DisplayInfor extends React.Component {
         return (
             <div>
                 <div>
-                    <span onClick={() => { this.handleShowHide() }} >Hide list User:
+                    <span onClick={() => { this.handleShowHide() }} >
                         {this.state.isShowListUser ? "Hide list User": "Show list User"}
                     </span>
                 </div>
@@ -39,6 +39,7 @@ class DisplayInfor extends React.Component {
                                 <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
                                     <p> My name is {user.name}</p>
                                     <p> I am {user.age} years old</p>
+                                    <hr/>
                                 </div>
                             )
                         })}
