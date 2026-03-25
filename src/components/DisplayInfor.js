@@ -9,7 +9,8 @@
  */
 
 import React from "react";
-
+import "./DisplayInfor.scss";
+import logo from './../logo.svg';
 class DisplayInfor extends React.Component {
     state={
         isShowListUser: true
@@ -25,7 +26,8 @@ class DisplayInfor extends React.Component {
         //Dùng destructoring để lấy giá trị từ props
         const { listUser } = this.props; // (const listUser = this.props.listUser)
         return (
-            <div>
+            <div className="Display-Infor-Container">
+                <img src={logo}/>
                 <div>
                     <span onClick={() => { this.handleShowHide() }} >
                         {this.state.isShowListUser ? "Hide list User": "Show list User"}
@@ -37,7 +39,7 @@ class DisplayInfor extends React.Component {
                             return (
                                 //===== NOTE: dùng câu điều kiện để set className css ======
                                 <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
-                                    <p> My name is {user.name}</p>
+                                    <p style={{color: "yellow", paddingTop: 20}}> My name is {user.name}</p>
                                     <p> I am {user.age} years old</p>
                                     <hr/>
                                 </div>
