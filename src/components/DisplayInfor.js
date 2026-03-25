@@ -25,6 +25,8 @@ class DisplayInfor extends React.Component {
     render() {
         //Dùng destructoring để lấy giá trị từ props
         const { listUser } = this.props; // (const listUser = this.props.listUser)
+        
+        //Templete + logic js
         return (
             <div className="Display-Infor-Container">
                 <img src={logo}/>
@@ -34,7 +36,7 @@ class DisplayInfor extends React.Component {
                     </span>
                 </div>
                 {this.state.isShowListUser &&
-                    <div>
+                    <>
                         {listUser.map((user) => {
                             return (
                                 //===== NOTE: dùng câu điều kiện để set className css ======
@@ -53,7 +55,7 @@ class DisplayInfor extends React.Component {
                 <hr />
                 <p>Name: {name}</p>
                 <p>Age: {age}</p> */}
-                    </div>
+                    </>
                 }
             </div>
         )

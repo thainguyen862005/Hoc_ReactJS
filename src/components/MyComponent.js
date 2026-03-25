@@ -17,35 +17,43 @@ import DisplayInfor from './DisplayInfor';
 
 
 class MyCombponent extends React.Component {
-    state= {
+    state = {
         listUser: [
             { id: 1, name: 'Denis Nguyen', age: 16 },
             { id: 2, name: 'Hoang Thai', age: 26 },
             { id: 3, name: 'Nguyen Van A', age: 30 }
         ]
     }
-    handleAddNewUser= (userObj)=>{
-        console.log("check Data Add",userObj);
+    handleAddNewUser = (userObj) => {
+        console.log("check Data Add", userObj);
         this.setState({
-            listUser: [userObj,...this.state.listUser]
+            listUser: [userObj, ...this.state.listUser]
         })
     }
 
+    /**Để in ra màn hình JS sẽ không in được OBJECT VS Array:
+        c1: dùng console.log('...')
+        c2: dùng JSON.Stringify(...)
+    */
+
     render() {
-        
+
         return (
-            <div>
-                <AddUserInfor 
-                handleAddNewUser= {this.handleAddNewUser}/>
+            <>
+                <div className='a'>
+                    <AddUserInfor
+                        handleAddNewUser={this.handleAddNewUser} />
 
-                <br />
+                    <br />
 
-                <DisplayInfor 
-                listUser={this.state.listUser} 
-                /> 
-                
+                    <DisplayInfor
+                        listUser={this.state.listUser}
+                    />
+                </div>
+                <div className='b'>
 
-            </div>
+                </div>
+            </>
         )
 
     }
